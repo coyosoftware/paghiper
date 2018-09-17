@@ -17,10 +17,6 @@ module Paghiper
 
       private
 
-      def prepare_options(custom_options, required_options)
-        custom_options.merge!(required_options)
-      end
-
       def peform_action!(action_name, url, options = {})
         raise(MissingTokenError, 'Informe a api key para realizar a autenticação') if Paghiper.configuration.api_key.nil? || Paghiper.configuration.api_key.empty?
 
