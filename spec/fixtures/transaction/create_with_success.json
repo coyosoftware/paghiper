@@ -1,0 +1,18 @@
+{
+  "create_request": {
+    "result":"success",
+    "response_message":"transacao criada",
+    "transaction_id":"HF97T5SH2ZQNLF6Z",
+    "created_date":"2017-07-20 20:46:57",
+    "value_cents":"18507",
+    "status":"pending",
+    "order_id":"32330335",
+    "due_date":"2017-07-27",
+    "bank_slip": {
+      "digitable_line":"34191.76304 03906.270248 61514.190000 9 72330000017012",
+      "url_slip":"https://www.paghiper.com/checkout/boleto/180068c7/HF97T5SH2ZQNLF6Z/30039",
+      "url_slip_pdf":"https://www.paghiper.com/checkout/boleto/180068c7/HF97T5SH2ZQNLF6Z/30039/pdf"
+    },
+    "http_code":"201"
+  }
+}
