@@ -2,6 +2,7 @@
 
 Gem para integração com a API de geração de boleto do [PAGHIPER](https://dev.paghiper.com/)
 
+[![Gem Version](https://badge.fury.io/rb/paghiper.svg)](https://badge.fury.io/rb/paghiper)
 [![Build Status](https://travis-ci.com/coyosoftware/paghiper.svg?branch=master)](https://travis-ci.com/coyosoftware/paghiper)
 [![Maintainability](https://api.codeclimate.com/v1/badges/33a90218586cd93bb200/maintainability)](https://codeclimate.com/github/coyosoftware/paghiper/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/33a90218586cd93bb200/test_coverage)](https://codeclimate.com/github/coyosoftware/paghiper/test_coverage)
