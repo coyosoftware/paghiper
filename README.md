@@ -1,37 +1,37 @@
 # PAGHIPER
 
-Gem para integração com a API de geração de boleto do [PAGHIPER](https://dev.paghiper.com/)
+Ruby gem for [PAGHIPER](https://dev.paghiper.com/) API generation of "boletos" (brazilian cash payment method).
 
 [![Gem Version](https://badge.fury.io/rb/paghiper.svg)](https://badge.fury.io/rb/paghiper)
 [![Build Status](https://travis-ci.com/coyosoftware/paghiper.svg?branch=master)](https://travis-ci.com/coyosoftware/paghiper)
 [![Maintainability](https://api.codeclimate.com/v1/badges/33a90218586cd93bb200/maintainability)](https://codeclimate.com/github/coyosoftware/paghiper/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/33a90218586cd93bb200/test_coverage)](https://codeclimate.com/github/coyosoftware/paghiper/test_coverage)
 
-**Atualmente a gem suporta a versão v1.3 da API do PAGHIPER**
+**Currently, gem supports version v1.3 of PAGHIPER API**
 
-## Instalação
+## Installation
 
-Adicione essa linha no seu Gemfile:
+Add the following line in your Gemfile:
 
 ```ruby
 gem 'paghiper'
 ```
 
-e execute:
+and execute:
 
     $ bundle
 
-Ou instale a gem via:
+Or install it through:
 
     $ gem install paghiper
 
-## Configuração
+## Configuration
 
-Gere o arquivo de inicialização do Rails
+Generate Rails initialization file
 
     $ rails g paghiper:install
 
-Configure o client
+Configure your client settings
 
 ```ruby
 Paghiper.configure do |config|
@@ -40,15 +40,15 @@ Paghiper.configure do |config|
 end
 ```
 
-## Uso
+## Usage
 
-### Gerando boletos
+### Generating boletos
 
 ```ruby
 Paghiper::Transaction.create(transaction_data)
 ```
 
-Consulte os dados necessários para a geração do boleto na [documentação da API](https://dev.paghiper.com/reference#gerar-boleto) do PAGHIPER
+Check [API documentations](https://dev.paghiper.com/reference#gerar-boleto) of PAGHIPER required data to generate boletos.
 
 ## Development
 
