@@ -1,10 +1,8 @@
 require 'bundler/setup'
 require 'paghiper'
-require 'fakeweb'
+require 'webmock/rspec'
 require 'simplecov'
 SimpleCov.start
-
-FakeWeb.allow_net_connect = false
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
