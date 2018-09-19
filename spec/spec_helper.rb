@@ -18,6 +18,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     Paghiper.configure do |configuration|
       configuration.api_key = 'FOOBAR'
+      configuration.token = 'BARFOO'
     end
   end
 end

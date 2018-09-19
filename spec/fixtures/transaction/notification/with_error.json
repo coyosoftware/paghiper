@@ -1,0 +1,7 @@
+{
+  "status_request": {
+    "result": "reject",
+    "response_message": "notification_id inválida ou expirada",
+    "http_code": 200
+  }
+}

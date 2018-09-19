@@ -8,8 +8,10 @@ RSpec.describe Paghiper do
   it 'allows to use the config method to configure the core class' do
     Paghiper.configure do |config|
       config.api_key = 'BAR123'
+      config.token = 'FOO321'
     end
 
     expect(Paghiper.configuration.api_key).to eq('BAR123')
+    expect(Paghiper.configuration.token).to eq('FOO321')
   end
 end

@@ -16,7 +16,7 @@ module Paghiper
   end
 
   class Configuration
-    attr_accessor :api_key, :http_debug
+    attr_accessor :api_key, :token, :http_debug
 
     def initialize
       @http_debug = false

@@ -36,6 +36,7 @@ Configure your client settings
 ```ruby
 Paghiper.configure do |config|
   config.api_key = 'apk_99999999-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+  config.token = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
   config.http_debug = true
 end
 ```
@@ -48,7 +49,15 @@ end
 Paghiper::Transaction.create(transaction_data)
 ```
 
-Check [API documentations](https://dev.paghiper.com/reference#gerar-boleto) of PAGHIPER required data to generate boletos.
+Check the [API documentation](https://dev.paghiper.com/reference#gerar-boleto) for more information regarding this endpoint.
+
+### Responding to boletos webhook (Automatic status notification)
+
+```ruby
+  Paghiper::Transaction.notification(notification_data)
+```
+
+Check the [API documentation](https://dev.paghiper.com/reference#qq) for the detailed notification flow.
 
 ## Development
 

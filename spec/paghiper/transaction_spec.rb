@@ -28,30 +28,72 @@ RSpec.describe Paghiper::Transaction do
     end
 
     context 'with success' do
+      let(:file_path) { File.join(File.dirname(__FILE__), '..', 'fixtures', 'transaction', 'create_with_success.json') }
+      let(:return_data) { JSON.parse(File.new(file_path).read) }
+
       before do
-        stub_request(:post, 'https://api.paghiper.com/transaction/create').to_return(body: File.new(File.join(File.dirname(__FILE__), '..', 'fixtures', 'transaction', 'create_with_success.json')), status: 201)
+        stub_request(:post, 'https://api.paghiper.com/transaction/create').to_return(body: File.new(file_path), status: 201)
       end
 
-      it 'creates a new transaction' do
+      it 'returns the request response' do
         request = Paghiper::Transaction.create(@transaction)
 
-        expect(request[:result]).to eq('success')
-        expect(request[:transaction_id]).to eq('HF97T5SH2ZQNLF6Z')
-        expect(request[:http_code]).to eq('201')
+        expect(request).to eq(return_data['create_request'])
       end
     end
 
     context 'with error' do
+      let(:file_path) { File.join(File.dirname(__FILE__), '..', 'fixtures', 'transaction', 'create_with_error.json') }
+      let(:return_data) { JSON.parse(File.new(file_path).read) }
+
       before do
-        stub_request(:post, 'https://api.paghiper.com/transaction/create').to_return(body: File.new(File.join(File.dirname(__FILE__), '..', 'fixtures', 'transaction', 'create_with_error.json')), status: 200)
+        stub_request(:post, 'https://api.paghiper.com/transaction/create').to_return(body: File.new(file_path), status: 200)
       end
 
-      it 'does not create a new transaction' do
+      it 'returns the request response' do
         request = Paghiper::Transaction.create(@transaction)
 
-        expect(request[:result]).to eq('reject')
-        expect(request[:response_message]).to eq('foo bar')
-        expect(request[:http_code]).to eq('200')
+        expect(request).to eq(return_data['create_request'])
+      end
+    end
+  end
+
+  describe '.notification' do
+    before(:all) do
+      @notification = {
+        apiKey: Paghiper.configuration.api_key,
+        transaction_id: '3IMZI5QXGMI7K40W',
+        notification_id: 'W6QM6MORZW4KUENC0NU6ERN0AULFUIUROKEU72L6ZQQT4E6521CGT0G3V2JQKDI9'
+      }
+    end
+
+    context 'with success' do
+      let(:file_path) { File.join(File.dirname(__FILE__), '..', 'fixtures', 'transaction', 'notification', 'with_success.json') }
+      let(:return_data) { JSON.parse(File.new(file_path).read) }
+
+      before do
+        stub_request(:post, 'https://api.paghiper.com/transaction/notification').to_return(body: File.new(file_path), status: 201)
+      end
+
+      it 'returns the transaction information' do
+        request = Paghiper::Transaction.notification(@notification)
+
+        expect(request).to eq(return_data['status_request'])
+      end
+    end
+
+    context 'with error' do
+      let(:file_path) { File.join(File.dirname(__FILE__), '..', 'fixtures', 'transaction', 'notification', 'with_error.json') }
+      let(:return_data) { JSON.parse(File.new(file_path).read) }
+
+      before do
+        stub_request(:post, 'https://api.paghiper.com/transaction/notification').to_return(body: File.new(file_path), status: 200)
+      end
+
+      it 'returns the request response' do
+        request = Paghiper::Transaction.notification(@notification)
+
+        expect(request).to eq(return_data['status_request'])
       end
     end
   end
